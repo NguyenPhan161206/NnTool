@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: toolhub-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    workingDir: backend
+    envVars:
+      - key: MODEL_NAME
+        value: qwen3:4b
+      - key: OLLAMA_HOST
+        value: http://localhost:11434
+      - key: CORS_ORIGINS
+        value: https://your-frontend.vercel.app
