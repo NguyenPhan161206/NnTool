@@ -20,5 +20,6 @@
 <script setup lang="ts">
 const { data: tools } = useFetch("/api/tools", {
   baseURL: useRuntimeConfig().public.apiBaseUrl,
+  server: false,
 });
 </script>
